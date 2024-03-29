@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Pages } from './types';
+import { useRoute } from './hooks/useRoute';
+//import { RootPage } from './pages/RootPage';
+import { useAppContext } from './hooks/useAppContext';
+import { Button } from './components/UI/Button';
+
+const RootPage = () => <p>root</p>;
+const ChatPage = () => <p>chat</p>;
+const WhatsappPage = () => <p>WhatsappPage</p>;
+const TelegramPage = () => <p>TelegramPage</p>;
+const SettingsPage = () => <p>Settings</p>;
+const SignupPage = () => <p>Signup</p>;
+const SigninPage = () => <p>Signin</p>;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { Routes, Route } = useRoute();
+  const { dispatch } = useAppContext();
+
+  const changePage = (page: Pages) => {
+    dispatch({ type: 'SWITCH', payload: page });
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: 10,
+          marginTop: 20,
+        }}
+      >
+        <Button onClick={() => changePage(Pages.root)} text="root" />
+        <Button onClick={() => changePage(Pages.chat)} text="chat" />
+        <Button onClick={() => changePage(Pages.whatsapp)} text="whtsapp" />
+        <Button onClick={() => changePage(Pages.telegram)} text="telegram" />
+        <Button onClick={() => changePage(Pages.settings)} text="settings" />
+        <Button onClick={() => changePage(Pages.signin)} text="sign in" />
+        <Button onClick={() => changePage(Pages.signup)} text="sign up" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path={Pages.root} component={RootPage} />
+        <Route path={Pages.chat} component={ChatPage} />
+        <Route path={Pages.whatsapp} component={WhatsappPage} />
+        <Route path={Pages.telegram} component={TelegramPage} />
+        <Route path={Pages.settings} component={SettingsPage} />
+        <Route path={Pages.signup} component={SignupPage} />
+        <Route path={Pages.signin} component={SigninPage} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
