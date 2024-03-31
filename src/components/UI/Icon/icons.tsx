@@ -1,7 +1,8 @@
 import type { SVGAttributes } from 'react';
-import Chat from '@assets/chat.svg';
-import Close from '@assets/close.svg';
-
+import Chat from '@/assets/chat.svg?react';
+import Close from '@/assets/close.svg?react';
+import Whatsapp from '@/assets/whatsapp.svg?react';
+import Telegram from '@/assets/telegram.svg?react';
 
 const defaultAttributes: SVGAttributes<HTMLOrSVGElement> = {
   width: '100%',
@@ -13,6 +14,8 @@ const defaultAttributes: SVGAttributes<HTMLOrSVGElement> = {
 export const icons = {
   chat: <Chat {...defaultAttributes} />,
   close: <Close {...defaultAttributes} />,
+  whatsapp: <Whatsapp {...defaultAttributes} />,
+  telegram: <Telegram {...defaultAttributes} />,
 };
 
 export type IconType = Nullable<keyof typeof icons>;

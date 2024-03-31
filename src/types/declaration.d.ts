@@ -1,19 +1,10 @@
-declare module '*.scss' {
-  const content: Record<string, string>;
-  export default content;
-}
-
-declare module '*.svg' {
-  const content: string;
-  export default content;
-}
-
-declare module '*.png' {
-  const content: string;
-  export default content;
-}
-
-
 declare type Nullable<T> = T | null;
 declare type VoidFunction = (...args: unknown[]) => void;
 declare type AnyFunction<T> = (...args: never) => T;
+
+declare module '*.svg?react' {
+  import React = require('react')
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
+  const src: string
+  export default src
+}
