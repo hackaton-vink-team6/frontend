@@ -1,0 +1,22 @@
+@use 'src/styles/variables' as vars;
+
+.nav-item {
+  position: relative;
+  padding: 0;
+  outline: none;
+
+  .tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: vars.$dark-secondary;
+    border-radius: vars.$border-radius-s;
+    padding: 8px 16px;
+    color: vars.$bg-secondary;
+    left: calc(-100% - 74px);
+    top: 10px;
+  }
+
+  &:hover .tooltip {
+    visibility: visible;
+  }
+}

@@ -9,13 +9,11 @@ type RouteProps = {
 
 export const useRoute = () => {
   const {
+    dispatch,
     state: {
       router: { currentPage },
     },
   } = useAppContext();
-  // const { currentPage } = router
-
-  console.log('currentPage', currentPage);
 
   const Route: FC<RouteProps> = ({ component: Component }) => <Component />;
 
@@ -32,5 +30,9 @@ export const useRoute = () => {
     );
   };
 
-  return { Routes, Route };
+  const navigate = (page: Pages) => {
+    dispatch({ type: 'SWITCH', payload: page });
+  };
+
+  return { Routes, Route, navigate };
 };
