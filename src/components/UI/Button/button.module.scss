@@ -1,0 +1,96 @@
+@use 'src/styles/variables' as vars;
+
+.button {
+  box-sizing: border-box;
+  padding: 0 24px;
+  background: transparent;
+  border: none;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  font-family: vars.$mainFont;
+  font-size: vars.$font-size-m;
+  font-style: normal;
+  font-weight: 500;
+  line-height: vars.$line-height-m;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: vars.$trans-300;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: vars.$borders-divider-disabled-bg;
+    color: vars.$dark-secondary;
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.view-primary {
+  background-color: vars.$color-primary;
+  color: vars.$bg-primary;
+  min-width: 72px;
+  min-height: 48px;
+
+  &:hover {
+    background-color: vars.$color-hover;
+  }
+
+  &:disabled {
+    background-color: vars.$borders-divider-disabled-bg;
+  }
+}
+
+.view-secondary {
+  background-color: vars.$bg-primary;
+  color: vars.$color-primary;
+  border: 1.2px solid vars.$borders-divider-disabled-bg;
+  min-width: 72px;
+  min-height: 48px;
+
+  &:hover {
+    color: vars.$color-hover;
+  }
+
+  &:disabled {
+    color: vars.$dark-secondary;
+    box-shadow: none;
+  }
+}
+
+.view-text {
+  color: vars.$dark-primary;
+  padding: 0;
+
+  &:hover {
+    color: vars.$color-hover;
+  }
+
+  &:disabled {
+    color: vars.$dark-secondary;
+    background-color: transparent;
+  }
+}
+
+.hover-default {
+  &:hover {
+    box-shadow: 0 4px 8px 0 vars.$drop-shadow-small;
+  }
+
+  &:disabled {
+    box-shadow: none;
+  }
+}
+
+.hover-border {
+  &:hover {
+    border-color: vars.$color-primary;
+  }
+}
