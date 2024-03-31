@@ -1,6 +1,8 @@
 import React, { PropsWithChildren, FC } from 'react';
 import { Pages } from '../types';
-import { useAppContext } from './useAppContext';
+import { useAppSelector, useAppDispatch } from '@/store';
+import { selectCurrentPage } from '@/store/app/selectors';
+import { switchPage } from '@/store/app/slice';
 
 type RouteProps = {
   path: Pages;
@@ -8,12 +10,8 @@ type RouteProps = {
 };
 
 export const useRoute = () => {
-  const {
-    dispatch,
-    state: {
-      router: { currentPage },
-    },
-  } = useAppContext();
+  const dispatch = useAppDispatch()
+  const currentPage  = useAppSelector(selectCurrentPage);
 
   const Route: FC<RouteProps> = ({ component: Component }) => <Component />;
 
@@ -31,7 +29,7 @@ export const useRoute = () => {
   };
 
   const navigate = (page: Pages) => {
-    dispatch({ type: 'SWITCH', payload: page });
+    dispatch(switchPage(page));
   };
 
   return { Routes, Route, navigate };
