@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.fade-enter {
+  opacity: 0; /* Начальное состояние при появлении элемента */
+}
+
+.fade-enter-active {
+  opacity: 1; /* Конечное состояние при появлении элемента */
+  transition: opacity 300ms ease-in-out; /* Плавность анимации */
+}
+
+.fade-exit {
+  opacity: 1; /* Начальное состояние при скрытии элемента */
+}
+
+.fade-exit-active {
+  opacity: 0; /* Конечное состояние при скрытии элемента */
+  transition: opacity 300ms ease-in-out; /* Плавность анимации */
+}

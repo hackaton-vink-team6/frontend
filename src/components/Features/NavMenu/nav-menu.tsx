@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import styles from './nav-menu.module.scss';
 import { Pages } from '@/types';
 import { useRoute } from '@/hooks/useRoute';
-import { NavItem } from '../NavItem/nav-item';
+import { NavItem } from '../NavItem';
 import { IconType } from '@/components/UI/Icon';
 
 const navItems = [
