@@ -2,7 +2,7 @@ import { Pages } from './types';
 import { useRoute } from './hooks/useRoute';
 //import { RootPage } from './pages/RootPage';
 import { useAppContext } from './hooks/useAppContext';
-//import { Button } from './components/UI/Button';
+import { Button } from './components/UI/Button';
 
 const RootPage = () => <p>root</p>;
 const ChatPage = () => <p>chat</p>;
@@ -30,13 +30,13 @@ function App() {
           marginTop: 20,
         }}
       >
-        <button onClick={() => changePage(Pages.root)}>"root"</button>
-        <button onClick={() => changePage(Pages.chat)}>"chat" </button>
-        <button onClick={() => changePage(Pages.whatsapp)}>"whtsapp" </button>
-        <button onClick={() => changePage(Pages.telegram)}>"telegram" </button>
-        <button onClick={() => changePage(Pages.settings)}>"settings" </button>
-        <button onClick={() => changePage(Pages.signin)}>sign in" </button>
-        <button onClick={() => changePage(Pages.signup)}>"sign up" </button>
+        <Button onClick={() => changePage(Pages.root)} text="root" />
+        <Button onClick={() => changePage(Pages.chat)} text="chat" />
+        <Button onClick={() => changePage(Pages.whatsapp)} text="whtsapp" />
+        <Button onClick={() => changePage(Pages.telegram)} text="telegram" />
+        <Button onClick={() => changePage(Pages.settings)} text="settings" />
+        <Button onClick={() => changePage(Pages.signin)} text="sign in" />
+        <Button onClick={() => changePage(Pages.signup)} text="sign up" />
       </div>
       <Routes>
         <Route path={Pages.root} component={RootPage} />

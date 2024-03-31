@@ -1,0 +1,27 @@
+@use 'src/styles/variables' as vars;
+
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: vars.$transparent;
+  border: none;
+  padding: 0;
+}
+
+.default {
+  max-height: 24px;
+  max-width: 24px;
+  height: 24px;
+}
+
+.medium {
+  max-height: 26px;
+  max-width: 26px;
+  height: 26px;
+}
+
+button.icon {
+  cursor: pointer;
+}
