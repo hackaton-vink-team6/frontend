@@ -1,21 +1,37 @@
-import { useRef, type FC } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { useAppSelector } from '@/store';
+import { useEffect, type FC, useRef } from 'react';
+import classnames from 'classnames';
+import { useAppSelector, useAppDispatch } from '@/store';
 import styles from './overlay.module.scss';
 import { selectIsAppActive } from '@/store/app/selectors';
+import { setAppIsActive } from '@/store/app/slice';
 
 export const Overlay: FC = () => {
+  const dispatch = useAppDispatch();
   const isAppActive = useAppSelector(selectIsAppActive);
-  const nodeRef = useRef(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClose = () => {
+    dispatch(setAppIsActive(false));
+  };
+
+  const handleClickInside = (event: MouseEvent) => {
+    if (overlayRef.current && overlayRef.current.contains(event.target as Node)) {
+      handleClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickInside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickInside);
+    };
+  });
 
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      in={isAppActive}
-      timeout={3000}
-      classNames="fade"
-    >
-      <div ref={nodeRef} className={styles.overlay} />
-    </CSSTransition>
+    <div
+      ref={overlayRef}
+      className={classnames({ [styles.visible]: isAppActive }, styles.overlay)}
+    />
   );
 };
