@@ -8,6 +8,10 @@ export enum Pages {
   'signin',
 }
 
+export type AppState = {
+  isActive?: boolean;
+};
+
 export type RouterState = {
   currentPage?: Pages;
 };
@@ -17,6 +21,7 @@ export type UserState = {
 };
 
 export type RootState = {
+  app: AppState;
   router: RouterState;
   user: UserState;
 };
@@ -27,6 +32,6 @@ export type Action = {
 };
 
 export type AppContext = {
-  state: RootState ;
+  state: RootState;
   dispatch: React.Dispatch<Action>;
 };

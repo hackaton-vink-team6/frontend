@@ -3,7 +3,7 @@ import { useAppReducer } from './useAppReducer';
 import type { AppContext } from '@/types';
 
 const AppContext = createContext<AppContext>({
-  state: { router: {}, user: {} },
+  state: { router: {}, user: {}, app: {} },
   dispatch: () => void 0,
 });
 
