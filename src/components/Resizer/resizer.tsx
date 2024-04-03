@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { ResizerProp } from './types';
+import { Dimensions, ResizerProp, Sizes } from './types';
 import styles from './resize.module.scss';
 
 export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
@@ -16,23 +16,18 @@ export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
   maxWidth = Infinity,
   position = 'center',
 }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const refResizer = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<Nullable<HTMLDivElement>>(null);
+  const refResizer = useRef<Nullable<HTMLDivElement>>(null);
+  const initialDimensions = useRef<Nullable<Dimensions>>(null);
+  const [sizes, setSizes] = useState<Nullable<Sizes>>(null);
 
-  const initialData = useRef<{
-    coordinate: [number, number];
-    sizes: { width: number; height: number };
-  } | null>(null);
-  const [sizes, setSizes] = useState<null | { width: number; height: number }>(
-    null,
-  );
   const [minimumSizes, setMinimumSizes] = useState({
     width: 0,
     height: 0,
   });
 
   const handleMouseUp = () => {
-    initialData.current = null;
+    initialDimensions.current = null;
   };
 
   const calculateNewSize = (
@@ -47,12 +42,12 @@ export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
 
   const handleMouseMove = (e: MouseEvent) => {
     e.preventDefault();
-    if (!initialData.current || !minimumSizes) return;
+    if (!initialDimensions.current || !minimumSizes) return;
 
     const {
       coordinate: [initialX, initialY],
       sizes: { width, height },
-    } = initialData.current;
+    } = initialDimensions.current;
 
     const dx = resize !== 'vertical' ? initialX - e.clientX : 0;
     const dy = resize !== 'horizontal' ? initialY - e.clientY : 0;
@@ -75,7 +70,7 @@ export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
     event.preventDefault();
     if (containerRef.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
-      initialData.current = {
+      initialDimensions.current = {
         coordinate: [event.clientX, event.clientY],
         sizes: { width, height },
       };

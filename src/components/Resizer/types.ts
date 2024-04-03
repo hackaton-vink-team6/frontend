@@ -6,3 +6,11 @@ export type ResizerProp = {
   maxWidth?: number;
   maxHeight?: number;
 } & HTMLAttributes<HTMLDivElement>;
+
+
+export type Sizes = { width: number; height: number }
+export type Coordinate = [number, number]
+export type Dimensions = {
+  coordinate: Coordinate;
+  sizes: Sizes;
+}
