@@ -14,7 +14,7 @@
   }
 
   .active {
-    fill: #ffd132;
+    fill: vars.$color-primary;
   }
 
   &:hover {
@@ -25,7 +25,7 @@
       fill: #4b4b4b;
     }
     .active {
-      fill: #ffd132;
+      fill: vars.$color-primary;
     }
   }
 }

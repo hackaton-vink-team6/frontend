@@ -1,34 +1,28 @@
 $bg-primary: #ffffff;
 $bg-secondary: #fcfcfc;
-$bg-yandex: #000000;
 
-$dark-primary: #212329;
-$dark-secondary: #9397a3;
+$dark-primary: #37383a;
+$dark-secondary: #4b4b4b;
 
 $borders-divider-disabled-bg: #e6e7eb;
 $drop-shadow-small: rgba(231, 232, 235, 0.6);
 
-$color-primary: #ff6600;
-$color-hover: #f06000;
+$color-primary: #ffd132;
+$color-hover: #ebbf33;
 
-$warning: #ff0000;
+$color-primary-bg: #ebbf33;
+
+$warning: #ff9c7d;
 $warning-border: rgba(255, 0, 0, 0.6);
 $warning-bg: rgba(255, 0, 0, 0.12);
-
-$success: #008000;
+$success: #b6ed8b;
 $success-border: rgba(0, 128, 0, 0.6);
 $success-bg: rgba(0, 128, 0, 0.12);
-
-// на сафари есть косяки с просто transparent
 $transparent: rgba(255, 255, 255, 0);
-
-$bg-yandex-logo: #fc3f1d;
-$yandex-text-color: #fff;
 
 :export {
   dark-primary: $dark-primary;
   dark-secondary: $dark-secondary;
   warning: $warning;
   color-hover: $color-hover;
-  bg-yandex-logo: $bg-yandex-logo;
 }

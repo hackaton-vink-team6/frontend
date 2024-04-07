@@ -5,7 +5,7 @@ import { Resizer } from '../Resizer';
 
 export const ChatFooter: FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles['chat-footer']}>
       <Resizer position="center" resize="vertical" maxHeight={600}>
         <MessageForm />
       </Resizer>

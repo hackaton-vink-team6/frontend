@@ -1,3 +1,5 @@
+@use 'src/styles/variables' as vars;
+
 .text {
   margin: 0;
   padding: 0;
@@ -48,7 +50,7 @@
     min-height: 40px;
     max-width: 100px;
     box-sizing: border-box;
-    background: #ffd132;
+    background: vars.$color-primary;
     border: none;
     color: #37383a;
     font-size: 13px;

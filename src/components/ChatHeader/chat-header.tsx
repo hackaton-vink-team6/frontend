@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import MemberHeader from '../member-header/member-header';
 
-import chatHeaderStyles from './chat-header.module.css';
+import chatHeaderStyles from './chat-header.module.scss';
 
 import searchIcon from '../../images/search.png';
 import closeIcon from '../../images/close.png';
 
 interface IChatHeaderProps {}
 
-const ChatHeader: React.FC<IChatHeaderProps> = (): JSX.Element => {
+export const ChatHeader: React.FC<IChatHeaderProps> = (): JSX.Element => {
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
 
   // Функция открытия формы поиска
@@ -62,5 +62,3 @@ const ChatHeader: React.FC<IChatHeaderProps> = (): JSX.Element => {
     </div>
   );
 };
-
-export default ChatHeader;

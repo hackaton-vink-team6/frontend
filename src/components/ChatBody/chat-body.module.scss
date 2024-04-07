@@ -1,7 +1,13 @@
-.container {
+.chat-body {
   display: flex;
   flex-direction: column;
-  min-height: 400px;
   height: 100%;
-  background-color: rebeccapurple;
+}
+
+.chat-body-wrapper {
+  overflow: auto;
+  min-height: 150px;
+  flex-grow: 1;
+  background-image: url(src/assets/background.svg);
+  background-color: lightgrey;
 }

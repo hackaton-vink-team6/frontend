@@ -2,7 +2,7 @@ import { Pages } from './types';
 import { useRoute } from './hooks/useRoute';
 import { RootPage } from './pages/RootPage';
 import { ChatPage } from './pages/ChatPage';
-import { Overlay } from './components/Features/Overlay';
+import { Overlay } from './components/Overlay';
 
 const WhatsappPage = () => (
   <>
