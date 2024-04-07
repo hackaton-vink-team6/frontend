@@ -1,51 +1,42 @@
-import { useState } from 'react';
+import classnames from 'classnames';
+import { Typography } from '@components/UI/Typography';
+import { MessageRating } from '@components/Rating';
 import chatMessageStyles from './chat-message.module.scss';
-import { RatingButton } from '../UI/RatingButton';
+import { MessageProps } from './type';
 
-interface IChatMessageProps {
-  isOutgoing: boolean;
-  text: string;
-  author: string;
-}
-
-export const ChatMessage: React.FC<IChatMessageProps> = ({
-  isOutgoing,
-  text,
-  author,
+export const ChatMessage: React.FC<MessageProps> = ({
+  children,
 }): JSX.Element => {
-  const [ratingState, setRatingState] = useState<'up' | 'down' | null>(null);
+  const { text, user_name, time } = children;
 
-  function onLikeClick() {
-    setRatingState('up');
-  }
+  const isOutgoing = !user_name;
+  const author = user_name ?? 'Вы';
 
-  function onDislikeClick() {
-    setRatingState('down');
-  }
+  const localTime = new Date(time).toLocaleTimeString('ru-RU', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
   return (
-    <li
-      className={`${chatMessageStyles.message} ${isOutgoing ? chatMessageStyles.outgoingMessage : chatMessageStyles.incomingMessage}`}
+    <Typography
+      htmlTag="li"
+      className={classnames(
+        chatMessageStyles.message,
+        isOutgoing
+          ? chatMessageStyles.outgoingMessage
+          : chatMessageStyles.incomingMessage,
+      )}
     >
       {!isOutgoing && (
         <span className={chatMessageStyles.title}>{author.charAt(0)}</span>
       )}
-      <p className={chatMessageStyles.text}>{text}</p>
-      {!isOutgoing && (
-        <ul className={chatMessageStyles.ratingButtons}>
-          <li className={chatMessageStyles.ratingButton}>
-            <RatingButton
-              type="up"
-              state={ratingState}
-              handleClick={onLikeClick}
-            />
-            <RatingButton
-              type="down"
-              state={ratingState}
-              handleClick={onDislikeClick}
-            />
-          </li>
-        </ul>
-      )}
-    </li>
+      <div className={chatMessageStyles.content}>
+        <Typography className={chatMessageStyles.text}>{text}</Typography>
+        <Typography htmlTag="span" className={chatMessageStyles.time}>
+          {localTime}
+        </Typography>
+      </div>
+      {!isOutgoing && <MessageRating />}
+    </Typography>
   );
 };

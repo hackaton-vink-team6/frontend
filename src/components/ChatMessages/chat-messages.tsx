@@ -1,16 +1,16 @@
 import { FC, PropsWithChildren } from 'react';
-import styles from './messages.module.scss';
-import { Message, type TMessage } from '@components/Message';
 import { useMessages } from '@/hooks/useMessages';
+import { ChatMessage, type TMessage } from '@components/ChatMessage';
+import styles from './chat-messages.module.scss';
 
 export const Messages: FC<PropsWithChildren> = () => {
   const { messages } = useMessages();
 
   return (
-    <div className={styles.container}>
+    <ul className={styles.messages}>
       {messages.map((message: TMessage) => (
-        <Message key={message.time}>{message}</Message>
+        <ChatMessage key={message.time}>{message}</ChatMessage>
       ))}
-    </div>
+    </ul>
   );
 };

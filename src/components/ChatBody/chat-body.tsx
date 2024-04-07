@@ -3,7 +3,7 @@ import { type FC } from 'react';
 //import { selectIsAppActive } from '@/store/app/selectors';
 //import { setAppIsActive } from '@/store/app/slice';
 import styles from './chat-body.module.scss';
-import { Messages } from '@components/Messages';
+import { Messages } from '@/components/ChatMessages';
 
 export const ChatBody: FC = () => {
   //const dispatch = useAppDispatch();
