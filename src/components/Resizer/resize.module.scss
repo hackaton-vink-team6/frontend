@@ -1,13 +1,15 @@
-.container {
+.resizer-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
 .resizer {
   height: 10px;
   cursor: move;
   background-repeat: no-repeat;
+  flex-shrink: 0;
 
   &.icon-left {
     background-position: left 2px top 2px;
@@ -26,5 +28,9 @@
     cursor: row-resize;
     background-position: center center;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0uNS41SDhtLTcuNSAySDgiIHN0cm9rZT0iIzk3OTc5NyIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIi8+PC9zdmc+);
+  }
+
+  &.icon-dark-theme {
+    filter: invert(100%)
   }
 }

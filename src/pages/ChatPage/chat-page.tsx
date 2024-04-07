@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { useAppDispatch } from '@/store';
 import { NavButton } from '@components/UI/NavButton';
-import ChatHeader from '@/components/chat-header/chat-header';
+import { ChatHeader } from '@/components/ChatHeader';
 import { ChatBody } from '@/components/ChatBody';
 import { ChatFooter } from '@/components/ChatFooter';
 import { setAppIsActive, switchPage } from '@/store/app/slice';
@@ -20,8 +20,8 @@ export const ChatPage: FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Resizer position="left">
+    <div className={styles['chat-page']}>
+      <Resizer position="left" theme="dark" className={styles['resizer']}>
         <div className={styles.chat}>
           <ChatHeader />
           <ChatBody />

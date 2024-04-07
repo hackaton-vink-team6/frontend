@@ -35,9 +35,10 @@
 
 .view-primary {
   background-color: vars.$color-primary;
+  border: 1.2px solid vars.$color-primary-bg;
   color: vars.$bg-primary;
   min-width: 72px;
-  min-height: 48px;
+  min-height: 44px;
 
   &:hover {
     background-color: vars.$color-hover;

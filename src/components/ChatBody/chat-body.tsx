@@ -10,8 +10,10 @@ export const ChatBody: FC = () => {
   //const isAppActive = useAppSelector(selectIsAppActive);
 
   return (
-    <div className={styles.container}>
+    <div className={styles['chat-body-wrapper']} >
+    <div className={styles["chat-body"]}>
       <Messages />
+    </div>
     </div>
   );
 };

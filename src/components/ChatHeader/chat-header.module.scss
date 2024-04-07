@@ -1,3 +1,5 @@
+@use 'src/styles/variables' as vars;
+
 .header {
   box-sizing: border-box;
   display: flex;
@@ -7,9 +9,7 @@
   max-height: 48px;
   padding: 5px 15px;
   font-family: 'Arial';
-  background-color: #bbc7d9;
-
-  border: 1px solid red;
+  background: vars.$dark-secondary;
 }
 
 .infoSection {

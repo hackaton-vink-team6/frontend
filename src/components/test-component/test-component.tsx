@@ -1,6 +1,6 @@
 import { ChatBody } from '../ChatBody';
 import { ChatFooter } from '../ChatFooter';
-import ChatHeader from '../chat-header/chat-header';
+import { ChatHeader } from '../ChatHeader';
 import testComponentStyles from './test-component.module.css';
 //import { ChatMessage } from '@/components/ChatMessage';
 

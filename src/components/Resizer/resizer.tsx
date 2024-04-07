@@ -10,8 +10,10 @@ import { Dimensions, ResizerProp, Sizes } from './types';
 import styles from './resize.module.scss';
 
 export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
+  className,
   children,
   resize,
+  theme = 'light',
   maxHeight = Infinity,
   maxWidth = Infinity,
   position = 'center',
@@ -95,14 +97,18 @@ export const Resizer: FC<PropsWithChildren<ResizerProp>> = ({
   return (
     <div
       ref={containerRef}
-      className={styles.container}
+      className={classnames(className, styles['resizer-wrapper'])}
       style={{
         ...(sizes ? sizes : {}),
       }}
     >
       <div
         ref={refResizer}
-        className={classnames(styles.resizer, styles[`icon-${position}`])}
+        className={classnames(
+          styles.resizer,
+          styles[`icon-${position}`],
+          styles[`icon-${theme}-theme`],
+        )}
         onMouseDown={handleMouseDown}
       ></div>
       {children}

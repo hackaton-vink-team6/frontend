@@ -1,6 +1,6 @@
 @use 'src/styles/variables' as vars;
 
-.container {
+.chat-footer {
   background-color: vars.$bg-primary;
   border-radius: 0 0 vars.$border-radius-s vars.$border-radius-s;
 }
