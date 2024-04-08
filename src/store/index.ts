@@ -3,12 +3,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import type { RootState } from './types';
 import appReducer from './app/slice';
 import userReducer from './user/slice';
+import chatReducer from './chat/slice';
 
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
     user: userReducer,
+    chat: chatReducer,
   }
 });
 
