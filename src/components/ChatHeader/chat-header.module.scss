@@ -18,13 +18,19 @@
   justify-content: center;
 }
 
-.online {
+.status {
   width: 10px;
   height: 10px;
   margin-right: 10px;
-  background-color: #00a460;
   border-radius: 50%;
-  box-shadow: 0px 0px 6px 0px #20db8d;
+  &.online {
+    background-color: #00a460;
+    box-shadow: 0px 0px 6px 0px #20db8d;
+  }
+  &.offline {
+    background-color: #cf6161;
+    box-shadow: 0px 0px 6px 0px #f36d6d;
+  }
 }
 
 .identificator {

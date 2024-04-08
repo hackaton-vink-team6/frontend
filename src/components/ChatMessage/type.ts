@@ -9,7 +9,7 @@ export enum MessageType {
 }
 
 export type TMessage = {
-  chat_id: number;
+  chat_id?: number;
   time: string;
   type?: MessageType;
   user_name?: string;

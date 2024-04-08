@@ -14,7 +14,7 @@ export const Textarea: FC<TextareaProps> = ({
   value,
   ...props
 }) => (
-  <div className={classnames(styles.container, className)}>
+  <div className={classnames(styles['textarea-container'], className)}>
     <label htmlFor={props.name} className={styles.label}>
       {labelName && <span className={styles.labelText}>{labelName}</span>}{' '}
     </label>
