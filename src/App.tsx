@@ -2,23 +2,9 @@ import { Pages } from './types';
 import { useRoute } from './hooks/useRoute';
 import { RootPage } from './pages/RootPage';
 import { ChatPage } from './pages/ChatPage';
+import { TelegramPage } from './pages/TelegramPage';
+import { WhatsappPage } from './pages/WhatsappPage';
 import { Overlay } from './components/Overlay';
-
-const WhatsappPage = () => (
-  <>
-    <p>WhatsappPage</p>
-  </>
-);
-const TelegramPage = () => (
-  <>
-    <p>TelegramPage</p>
-  </>
-);
-const SettingsPage = () => (
-  <>
-    <p>Settings</p>
-  </>
-);
 
 function App() {
   const { Routes, Route } = useRoute();
@@ -30,7 +16,6 @@ function App() {
         <Route path={Pages.chat} component={ChatPage} />
         <Route path={Pages.whatsapp} component={WhatsappPage} />
         <Route path={Pages.telegram} component={TelegramPage} />
-        <Route path={Pages.settings} component={SettingsPage} />
       </Routes>
       <Overlay />
     </>
