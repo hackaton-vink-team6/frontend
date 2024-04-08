@@ -1,13 +1,13 @@
-import memberHeaderStyles from './member-header.module.css';
+import memberHeaderStyles from './header-member.module.scss';
 
-import testUserImage from '../../images/test-image.avif';
+import testUserImage from '../../assets/test-image.avif';
 
-interface IMemberHeaderProps {
+interface IHeaderMemberProps {
   members: string[];
   overflow: boolean;
 }
 
-const MemberHeader: React.FC<IMemberHeaderProps> = ({
+export const HeaderMember: React.FC<IHeaderMemberProps> = ({
   members,
   overflow,
 }): JSX.Element => {
@@ -48,5 +48,3 @@ const MemberHeader: React.FC<IMemberHeaderProps> = ({
     </li>
   );
 };
-
-export default MemberHeader;

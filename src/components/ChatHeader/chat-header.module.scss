@@ -34,9 +34,7 @@
 }
 
 .identificator {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
+  color: vars.$borders-divider-disabled-bg !important;
 }
 
 .interactionPanel {

@@ -1,3 +1,5 @@
+@use 'src/styles/variables' as vars;
+
 .members {
   display: flex;
   flex-direction: row-reverse;
@@ -14,7 +16,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid #bbc7d9;
+  border: 2px solid vars.$dark-secondary;
   border-left: none;
 
   cursor: pointer;
