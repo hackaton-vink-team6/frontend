@@ -24,7 +24,7 @@ export const NavMenu: FC = () => {
               }}
               key={String(page)}
               iconName={icon as IconType}
-              alt={alt}
+              alt={alt as string}
             />
           ))}
         </ul>
