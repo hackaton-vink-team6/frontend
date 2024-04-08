@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import classnames from 'classnames';
+import { useAppSelector } from '@/store';
 import { HeaderMember } from '@components/HeaderMember';
 import { Typography } from '@components/UI/Typography';
 import { Icon } from '@components/UI/Icon';
-
-import chatHeaderStyles from './chat-header.module.scss';
+import chatHeaderStyles from './chat-header.module.scss';import { selectIsConnected } from '@/store/chat/selectors';
 
 interface IChatHeaderProps {}
 
 export const ChatHeader: React.FC<IChatHeaderProps> = (): JSX.Element => {
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
-
+  const isConnected = useAppSelector(selectIsConnected);
   // Функция открытия формы поиска
   function onButtonClick() {
     setIsFormOpened((prevState: boolean) => !prevState);
@@ -19,7 +20,12 @@ export const ChatHeader: React.FC<IChatHeaderProps> = (): JSX.Element => {
     <div className={chatHeaderStyles.header}>
       <div className={chatHeaderStyles.infoSection}>
         {/* Индикация, что чат онлайн */}
-        <div className={chatHeaderStyles.online} />
+        <div
+          className={classnames(
+            chatHeaderStyles.status,
+            isConnected ? chatHeaderStyles.online : chatHeaderStyles.offline,
+          )}
+        />
         {/* Идентификатор чата */}
         <Typography
           size="s"

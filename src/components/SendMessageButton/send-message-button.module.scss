@@ -1,0 +1,10 @@
+.send-message-wrapper {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  visibility: hidden; 
+  
+  &[visible] {
+    opacity: 1; // Устанавливаем прозрачность 1 при наличии атрибута visible
+    visibility: visible; // Устанавливаем видимость в visible при наличии атрибута visible
+  }
+}

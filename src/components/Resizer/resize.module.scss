@@ -1,7 +1,7 @@
 .resizer-wrapper {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start;*/
   overflow: hidden;
 }
 
@@ -31,6 +31,6 @@
   }
 
   &.icon-dark-theme {
-    filter: invert(100%)
+    filter: invert(100%);
   }
 }
