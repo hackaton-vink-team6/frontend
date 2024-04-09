@@ -3,12 +3,12 @@ import { Textarea } from '../UI/Textarea';
 import styles from './send-message-form.module.scss';
 //import { useAppDispatch } from '@/store';
 import { useMessages } from '@/hooks/useMessages';
-
+import { SendMessageButton } from '../SendMessageButton';
 
 export const SendMessageForm: FC = () => {
   //const dispatch = useAppDispatch
   const [text, setText] = useState('');
-  const {sendMessage} = useMessages()
+  const { sendMessage } = useMessages();
   const handleSendMessage = useCallback(async () => {
     if (text.trim() !== '') {
       sendMessage(text.trim());
@@ -45,6 +45,7 @@ export const SendMessageForm: FC = () => {
         value={text}
         onChange={handleTextChange}
       />
+      <SendMessageButton onClick={handleSendMessage} {...(text.length > 0 && { visible: true })} />
     </div>
   );
 };

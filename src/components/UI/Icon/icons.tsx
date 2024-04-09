@@ -4,6 +4,7 @@ import Close from '@/assets/close.svg?react';
 import Search from '@/assets/search.svg?react';
 import Whatsapp from '@/assets/whatsapp.svg?react';
 import Telegram from '@/assets/telegram.svg?react';
+import Enter from '@/assets/enter.svg?react';
 
 const defaultAttributes: SVGAttributes<HTMLOrSVGElement> = {
   width: '100%',
@@ -18,6 +19,7 @@ export const icons = {
   search: <Search {...defaultAttributes} />,
   whatsapp: <Whatsapp {...defaultAttributes} />,
   telegram: <Telegram {...defaultAttributes} />,
+  enter: <Enter {...defaultAttributes} />,
 };
 
 export type IconType = Nullable<keyof typeof icons>;

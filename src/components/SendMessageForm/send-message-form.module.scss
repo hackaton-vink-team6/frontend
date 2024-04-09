@@ -1,7 +1,7 @@
 .message-form {
-  //height: calc(100% - 30px);
+  display: flex;
 }
 
 .message-textarea {
-  //min-height: 150px;
+  flex-grow: 1;
 }
