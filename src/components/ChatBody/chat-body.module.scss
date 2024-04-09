@@ -1,0 +1,38 @@
+@use 'src/styles/variables' as vars;
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-body-wrapper {
+  overflow: auto;
+  min-height: 150px;
+  flex-grow: 1;
+  background-image: url(/src/assets/background.svg);
+  background-color: lightgrey;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$dark-secondary;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-button:hover {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,31 @@
+@use 'src/styles/variables' as vars;
+
+.chat-page {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  right: 50px;
+  bottom: 50px;
+  z-index: 999;
+  max-width: 1280px;
+
+  .resizer {
+    height: calc(100vh - 200px);
+    width: 400px;
+    max-height: calc(100vh - 150px);
+    background: vars.$dark-secondary;
+    border-radius: vars.$border-radius-s;
+    box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.17);
+  }
+
+  .chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .close-button {
+    margin-top: 10px;
+  }
+}
